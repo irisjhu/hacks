@@ -25,10 +25,10 @@ import useStyles from "./styles";
 const App = () => {
   const classes = useStyles();
   const navLinks = [
-    { title: "MEET", path: "/about" },
-    { title: "WHERE", path: "/map" },
-    { title: "GALLERY", path: "/gallery" },
-    { title: "MEMES", path: "/memes" },
+    { title: "whomst", path: "/about" },
+    { title: "where", path: "/map" },
+    { title: "gallery", path: "/gallery" },
+    { title: "memes", path: "/memes" },
   ];
 
   return (
