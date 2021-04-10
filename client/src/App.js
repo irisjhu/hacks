@@ -10,6 +10,7 @@ import {
   List,
   ListItem,
   ListItemText,
+  sizing,
 } from "@material-ui/core";
 import MenuIcon from "@material-ui/icons/Menu";
 
@@ -24,15 +25,15 @@ import useStyles from "./styles";
 const App = () => {
   const classes = useStyles();
   const navLinks = [
-    { title: "meet", path: "/about" },
-    { title: "where", path: "/map" },
-    { title: "gallery", path: "/gallery" },
-    { title: "memes", path: "/memes" },
+    { title: "MEET", path: "/about" },
+    { title: "WHERE", path: "/map" },
+    { title: "GALLERY", path: "/gallery" },
+    { title: "MEMES", path: "/memes" },
   ];
 
   return (
     <Router>
-      <div className={classes.root}>
+      <div className={classes.root} height="100%">
         <AppBar position="static" color="transparent" elevation={0}>
           <Toolbar>
             <Container maxWidth="false" className={classes.navbarDisplayFlex}>
