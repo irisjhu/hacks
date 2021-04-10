@@ -13,6 +13,7 @@ import {
 } from "@material-ui/core";
 import MenuIcon from "@material-ui/icons/Menu";
 
+import Emoji from "./components/Emoji/emoji";
 import About from "./pages/about";
 import Home from "./pages/home";
 import HacksMap from "./pages/map";
@@ -37,6 +38,8 @@ const App = () => {
             <Container maxWidth="false" className={classes.navbarDisplayFlex}>
               <Button color="inherit" href="/">
                 HACKS
+                <Emoji symbol="😩" />
+                <Emoji symbol="😤" />
               </Button>
               <List component="nav" className={classes.navDisplayFlex}>
                 {navLinks.map(({ title, path }) => (
