@@ -1,11 +1,80 @@
-import React from 'react';
+import React from "react";
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import {
+  AppBar,
+  Container,
+  Toolbar,
+  Typography,
+  Button,
+  IconButton,
+  List,
+  ListItem,
+  ListItemText,
+} from "@material-ui/core";
+import MenuIcon from "@material-ui/icons/Menu";
+
+import About from "./pages/about";
+import Home from "./pages/home";
+import HacksMap from "./pages/map";
+import Gallery from "./pages/gallery";
+import Memes from "./pages/memes";
+import useStyles from "./styles";
 
 const App = () => {
-    return (
-        <div>
-            <h1>App</h1>
-        </div>
-    )
-}
+  const classes = useStyles();
+  const navLinks = [
+    { title: "meet", path: "/about" },
+    { title: "where", path: "/map" },
+    { title: "gallery", path: "/gallery" },
+    { title: "memes", path: "/memes" },
+  ];
+
+  return (
+    <Router>
+      <div>
+        <AppBar position="static" color="transparent" elevation={0}>
+          <Toolbar>
+            <Container maxWidth="false" className={classes.navbarDisplayFlex}>
+              <Button color="inherit" href="/">
+                HACKS
+              </Button>
+              <List component="nav" className={classes.navDisplayFlex}>
+                {navLinks.map(({ title, path }) => (
+                  <Link to={path} className={classes.linkText}>
+                    <ListItem button>
+                      <ListItemText primary={title} />
+                    </ListItem>
+                  </Link>
+                ))}
+              </List>
+            </Container>
+          </Toolbar>
+        </AppBar>
+
+        {/* A <Switch> looks through its children <Route>s and
+                    renders the first one that matches the current URL. */}
+        <Container>
+          <Switch>
+            <Route path="/about">
+              <About />
+            </Route>
+            <Route path="/map">
+              <HacksMap />
+            </Route>
+            <Route path="/gallery">
+              <Gallery />
+            </Route>
+            <Route path="/memes">
+              <Memes />
+            </Route>
+            <Route exact path="/">
+              <Home />
+            </Route>
+          </Switch>
+        </Container>
+      </div>
+    </Router>
+  );
+};
 
 export default App;
