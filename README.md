@@ -1,5 +1,7 @@
 ## Do this first
 
+In both `client` and `server` directories:
+
 `npm install`
 
 Get the .env file from Iris or make your own using your database access credentials.
