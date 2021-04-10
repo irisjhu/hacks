@@ -1,9 +1,11 @@
 import React from 'react';
+import { useDispatch } from 'react-redux';
 
 import useStyles from './styles';
 
 const ExampleForm  = () => {
     const classes = useStyles();
+    const dispatch = useDispatch();
 
     return (
         <Paper className={classes.paper}>
