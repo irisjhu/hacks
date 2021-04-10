@@ -1,6 +1,10 @@
 import React from 'react';
 
+import useStyles from './styles';
+
 const ExampleForm  = () => {
+    const classes = useStyles();
+
     return (
         <Paper className={classes.paper}>
         <form autoComplete="off" noValidate className={`${classes.root} ${classes.form}`} onSubmit={handleSubmit}>
