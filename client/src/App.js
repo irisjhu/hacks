@@ -32,7 +32,7 @@ const App = () => {
 
   return (
     <Router>
-      <div>
+      <div className={classes.root}>
         <AppBar position="static" color="transparent" elevation={0}>
           <Toolbar>
             <Container maxWidth="false" className={classes.navbarDisplayFlex}>
