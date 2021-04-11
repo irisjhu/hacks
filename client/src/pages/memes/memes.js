@@ -1,14 +1,14 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { makeStyles } from "@material-ui/core/styles";
-import Grid from "@material-ui/core/Grid";
-import Button from "@material-ui/core/Button";
-import Container from "@material-ui/core/Container";
-import Typography from "@material-ui/core/Typography";
+import { Box, Button, Container, Grid, Typography } from "@material-ui/core";
+import { useDispatch, useSelector } from "react-redux";
+import FileBase from "react-file-base64";
+import { uploadMeme } from "../../actions/memes";
 
 const memeLinks = [
   {
     url:
-      "https://64.media.tumblr.com/668f8fa044b09642396ee8be9846b449/tumblr_olspqaVPMy1u9ru6ro1_500.png",
+      "https://cabutcher.weebly.com/uploads/1/1/9/1/119135892/published/expanding-brain-for-identity-meme-activity.png?1608181161",
     alt: "gg bruh",
   },
   {
@@ -39,12 +39,14 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const Memes = () => {
+const Memes = (props) => {
   const classes = useStyles();
   return (
     <div>
       <Typography variant="h1" align="center">
-        dank memes
+        <Box paddingTop={10} paddingBottom={5} letterSpacing={6}>
+          dank memes
+        </Box>
       </Typography>
       <Grid spacing={5} container direction="column" alignItems="center">
         <Grid item>
@@ -53,12 +55,12 @@ const Memes = () => {
               accept="image/*"
               className={classes.input}
               id="contained-button-file"
-              multiple
+              multiple={false}
               type="file"
             />
             <label htmlFor="contained-button-file">
               <Button variant="contained" color="primary" component="span">
-                Upload
+                Upload a meme
               </Button>
             </label>
           </div>
