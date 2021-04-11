@@ -22,9 +22,11 @@ export default makeStyles((theme) => ({
   root: {
     flexGrow: 1,
     fontFamily: "Roboto",
+    height: "100vh",
   },
   menuButton: {
     marginRight: theme.spacing(2),
+    textTransform: "none",
   },
   title: {
     flexGrow: 1,
@@ -32,6 +34,7 @@ export default makeStyles((theme) => ({
   navDisplayFlex: {
     display: "flex",
     justifyContent: "space-between",
+    minHeight: "100%",
   },
   linkText: {
     textDecoration: "none",

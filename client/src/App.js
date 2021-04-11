@@ -16,7 +16,7 @@ import MenuIcon from "@material-ui/icons/Menu";
 
 import Emoji from "./components/Emoji/emoji";
 import About from "./pages/about";
-import Home from "./pages/home";
+import Home from "./pages/home/home";
 import HacksMap from "./pages/map";
 import Gallery from "./pages/gallery";
 import Memes from "./pages/memes";
@@ -33,12 +33,12 @@ const App = () => {
 
   return (
     <Router>
-      <div className={classes.root} height="100%">
+      <div className={classes.root}>
         <AppBar position="static" color="transparent" elevation={0}>
           <Toolbar>
             <Container maxWidth="false" className={classes.navbarDisplayFlex}>
-              <Button color="inherit" href="/">
-                HACKS
+              <Button color="inherit" href="/" className={classes.menuButton}>
+                hacks
                 <Emoji symbol="😩" />
                 <Emoji symbol="😤" />
               </Button>
@@ -57,25 +57,23 @@ const App = () => {
 
         {/* A <Switch> looks through its children <Route>s and
                     renders the first one that matches the current URL. */}
-        <Container>
-          <Switch>
-            <Route path="/about">
-              <About />
-            </Route>
-            <Route path="/map">
-              <HacksMap />
-            </Route>
-            <Route path="/gallery">
-              <Gallery />
-            </Route>
-            <Route path="/memes">
-              <Memes />
-            </Route>
-            <Route exact path="/">
-              <Home />
-            </Route>
-          </Switch>
-        </Container>
+        <Switch>
+          <Route path="/about">
+            <About />
+          </Route>
+          <Route path="/map">
+            <HacksMap />
+          </Route>
+          <Route path="/gallery">
+            <Gallery />
+          </Route>
+          <Route path="/memes">
+            <Memes />
+          </Route>
+          <Route exact path="/">
+            <Home />
+          </Route>
+        </Switch>
       </div>
     </Router>
   );
