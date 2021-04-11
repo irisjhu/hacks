@@ -63,17 +63,20 @@ const About = () => {
       <Container>
         <Typography variant="subtitle1" align="center" gutterBottom>
           <Box>
-          A group of computer science major friends who share approximately three brain cells.
+            A group of computer science major friends who share approximately
+            three brain cells.
           </Box>
         </Typography>
         <Typography variant="subtitle1" align="center" gutterBottom>
-          <Box >
-          Four of them created this website as a giant f*cking meme. Hope you enjoy.
+          <Box>
+            Four of them created this website as a giant f*cking meme. Hope you
+            enjoy.
           </Box>
         </Typography>
         <Typography variant="subtitle1" align="center" gutterBottom>
           <Box paddingBottom={5}>
-          They beep boop bopped there way through college and are now ready to take on the real
+            They beep boop bopped their way through college and are now ready to
+            take on the real world
           </Box>
         </Typography>
       </Container>
