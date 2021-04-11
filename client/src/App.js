@@ -15,11 +15,11 @@ import {
 import MenuIcon from "@material-ui/icons/Menu";
 
 import Emoji from "./components/Emoji/emoji";
-import About from "./pages/about";
+import About from "./pages/about/about";
 import Home from "./pages/home/home";
-import HacksMap from "./pages/map";
-import Gallery from "./pages/gallery";
-import Memes from "./pages/memes";
+import HacksMap from "./pages/map/map";
+import Gallery from "./pages/gallery/gallery";
+import Memes from "./pages/memes/memes";
 import useStyles from "./styles";
 
 const App = () => {
