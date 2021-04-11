@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Grid, Card, CardMedia, Fade } from "@material-ui/core";
+import { Grid, Card, CardMedia, Fade, Typography } from "@material-ui/core";
 
 import useStyles from "./styles";
 
@@ -32,7 +32,9 @@ const MemberCard = (props) => {
             <div className={classes.overlayPic}>
               <CardMedia component="img" image={props.shape} />
             </div>
-            <div className={classes.overlayText}>Iris Hu</div>
+            <Typography variant="h5" className={classes.overlayText}>
+              {props.name}
+            </Typography>
           </div>
         </Fade>
       </Card>

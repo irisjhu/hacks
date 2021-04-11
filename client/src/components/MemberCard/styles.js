@@ -4,6 +4,9 @@ export default makeStyles(() => ({
   card: {
     position: "relative",
   },
+  cardMedia: {
+    height: "100%",
+  },
   overlayPic: {
     position: "absolute",
     top: 0,
@@ -18,16 +21,4 @@ export default makeStyles(() => ({
     color: "black",
     transform: "translate(-50%, -50%)",
   },
-  // fadeOut: {
-  //   opacity: 0,
-  //   width: 0,
-  //   height: 0,
-  //   transition: "width 0.5s 0.5s, height 0.5s 0.5s, opacity 0.5s",
-  // },
-  // fadeIn: {
-  //   opacity: 1,
-  //   width: "100px",
-  //   height: "100px",
-  //   transition: "width 0.5s, height 0.5s, opacity 0.5s 0.5s",
-  // },
 }));
