@@ -11,6 +11,8 @@ import {
   ListItem,
   ListItemText,
   sizing,
+  createMuiTheme,
+  ThemeProvider,
 } from "@material-ui/core";
 import MenuIcon from "@material-ui/icons/Menu";
 
@@ -21,6 +23,17 @@ import HacksMap from "./pages/map/map";
 import Gallery from "./pages/gallery/gallery";
 import Memes from "./pages/memes/memes";
 import useStyles from "./styles";
+const theme = createMuiTheme();
+
+theme.typography.h1 = {
+  fontSize: "1.2rem",
+  "@media (min-width:600px)": {
+    fontSize: "3rem",
+  },
+  [theme.breakpoints.up("md")]: {
+    fontSize: "9rem",
+  },
+};
 
 const App = () => {
   const classes = useStyles();
@@ -57,23 +70,25 @@ const App = () => {
 
         {/* A <Switch> looks through its children <Route>s and
                     renders the first one that matches the current URL. */}
-        <Switch>
-          <Route path="/about">
-            <About />
-          </Route>
-          <Route path="/map">
-            <HacksMap />
-          </Route>
-          <Route path="/gallery">
-            <Gallery />
-          </Route>
-          <Route path="/memes">
-            <Memes />
-          </Route>
-          <Route exact path="/">
-            <Home />
-          </Route>
-        </Switch>
+        <ThemeProvider theme={theme}>
+          <Switch>
+            <Route path="/about">
+              <About />
+            </Route>
+            <Route path="/map">
+              <HacksMap />
+            </Route>
+            <Route path="/gallery">
+              <Gallery />
+            </Route>
+            <Route path="/memes">
+              <Memes />
+            </Route>
+            <Route exact path="/">
+              <Home />
+            </Route>
+          </Switch>
+        </ThemeProvider>
       </div>
     </Router>
   );
