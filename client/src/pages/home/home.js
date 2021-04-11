@@ -8,6 +8,8 @@ import {
 } from "@material-ui/core";
 
 import useStyles from "./styles";
+import background from "../../images/illustration/doodles.png";
+import textbackground from "../../images/illustration/text.png";
 
 const theme = createMuiTheme();
 
@@ -33,6 +35,24 @@ const Home = () => {
     //   className={classes.alignItemsAndJustifyContent}
     // >
     // </Box>
+    <div
+    style = {{
+      position: "fixed",
+top: "0",
+width: "100%",
+height: "100%",
+backgroundImage: `url(${textbackground})`,
+backgroundSize: "cover"
+    }}>
+    <div
+    style = {{
+      position: "fixed",
+top: "0",
+width: "100%",
+height: "100%",
+backgroundImage: `url(${background})`,
+backgroundSize: "cover"
+    }}>
     <div
       style={{
         position: "absolute",
@@ -60,6 +80,8 @@ const Home = () => {
           homies that are cool kids
         </Typography>
       </ThemeProvider>
+    </div>
+    </div>
     </div>
   );
 };
