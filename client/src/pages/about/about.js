@@ -76,7 +76,7 @@ const About = () => {
         <Typography variant="subtitle1" align="center" gutterBottom>
           <Box paddingBottom={5}>
             They beep boop bopped their way through college and are now ready to
-            take on the real world
+            take on the real world.
           </Box>
         </Typography>
       </Container>
