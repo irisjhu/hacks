@@ -16,7 +16,7 @@ import {
 } from "@material-ui/core";
 import MenuIcon from "@material-ui/icons/Menu";
 
-import Emoji from "./components/Emoji/emoji";
+import logo from "./images/logo.png";
 import About from "./pages/about/about";
 import Home from "./pages/home/home";
 import HacksMap from "./pages/map/map";
@@ -50,11 +50,9 @@ const App = () => {
         <AppBar position="static" color="transparent" elevation={0}>
           <Toolbar>
             <Container maxWidth="false" className={classes.navbarDisplayFlex}>
-              <Button color="inherit" href="/" className={classes.menuButton}>
-                hacks
-                <Emoji symbol="😩" />
-                <Emoji symbol="😤" />
-              </Button>
+              <Link width="20%" to="/" className={classes.linkText}>
+                <img src={logo} width="20%" />
+              </Link>
               <List component="nav" className={classes.navDisplayFlex}>
                 {navLinks.map(({ title, path }) => (
                   <Link to={path} className={classes.linkText}>
