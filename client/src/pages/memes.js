@@ -1,5 +1,7 @@
 import React from "react";
 import Grid from "@material-ui/core/Grid";
+import Button from "@material-ui/core/Button";
+import Container from "@material-ui/core/Container";
 import Typography from "@material-ui/core/Typography";
 
 const memeLinks = [
@@ -31,6 +33,13 @@ const Memes = () => {
       <Typography variant="h1" align="center">
         dank memes
       </Typography>
+      <Grid spacing={5} container direction="column" alignItems="center">
+        <Grid item>
+          <Button variant="contained" color="primary">
+            add a meme
+          </Button>
+        </Grid>
+      </Grid>
       <Grid spacing={5} container direction="column" alignItems="center">
         {memeLinks.map(({ url, alt }) => (
           <Grid item>
