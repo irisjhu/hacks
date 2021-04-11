@@ -20,18 +20,18 @@ const Home = () => {
     <div
     style = {{
       position: "fixed",
-top: "0",
+top: "64",
 width: "100%",
-height: "100%",
+height: "95%",
 backgroundImage: `url(${textbackground})`,
-backgroundSize: "cover"
+backgroundSize: "cover",
     }}>
     <div
     style = {{
       position: "fixed",
-top: "0",
+top: "64",
 width: "100%",
-height: "100%",
+height: "95%",
 backgroundImage: `url(${background})`,
 backgroundSize: "cover"
     }}>
