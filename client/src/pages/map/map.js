@@ -11,25 +11,16 @@ const HacksMap = () => {
     "https://raw.githubusercontent.com/zcreativelabs/react-simple-maps/master/topojson-maps/world-110m.json";
 
   return (
-    <div>
-      <Typography variant="h1" align="center">
-        <Box paddingTop={10} paddingBottom={5} letterSpacing={6}>
-          hacksmap
-        </Box>
-      </Typography>
-      <div>
-        <ComposableMap>
-          <Geographies geography={geoUrl}>
-            {({ geographies }) =>
-              geographies.map((geo) => (
-                <Geography key={geo.rsmKey} geography={geo} />
-              ))
-            }
-          </Geographies>
-        </ComposableMap>
-      </div>
-    </div>
-  );
+    <div
+      style={{
+        position: "absolute",
+        left: "50%",
+        top: "50%",
+        transform: "translate(-50%, -50%)",
+      }}>
+    <iframe src="https://www.google.com/maps/d/u/0/embed?mid=1vyEfSFG-cKtal4MefLpqdoKX1vwm8nju" width="640" height="480"></iframe>
+  </div>
+);
 };
 
 export default HacksMap;
