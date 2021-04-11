@@ -1,7 +1,7 @@
 import React from "react";
 import useStyles from "./styles";
-import { Typography } from "@material-ui/core";
-import { ComposableMap, Geographies, Geography, Box } from "react-simple-maps";
+import { Typography, Box } from "@material-ui/core";
+import { ComposableMap, Geographies, Geography } from "react-simple-maps";
 
 const HacksMap = () => {
   const classes = useStyles();
@@ -13,7 +13,9 @@ const HacksMap = () => {
   return (
     <div>
       <Typography variant="h1" align="center">
-        hacksmap
+        <Box paddingTop={10} paddingBottom={5} letterSpacing={6}>
+          hacksmap
+        </Box>
       </Typography>
       <div>
         <ComposableMap>
