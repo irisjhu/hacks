@@ -3,19 +3,17 @@ import mongoose from "mongoose";
 import cors from "cors";
 import dotenv from "dotenv";
 
-import exampleRoutes from "./routes/example.js";
 import imageRoutes from "./routes/images.js";
 
 const app = express();
 dotenv.config();
 
 // may want to change these limits; this is just from the tutorial
-// app.use(express.json({ limit: "30mb", extended: true }));
-// app.use(express.urlencoded({ limit: "30mb", extended: true }));
+app.use(express.json({ limit: "30mb", extended: true }));
+app.use(express.urlencoded({ limit: "30mb", extended: true }));
 app.use(cors());
 
 // routes
-app.use("/example", exampleRoutes);
 app.use("/images", imageRoutes);
 
 const PORT = process.env.PORT || 5000;

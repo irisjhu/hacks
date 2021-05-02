@@ -12,6 +12,15 @@ export const getImages = async (req, res) => {
   }
 };
 
+export const getImageFromId = async (req, res) => {
+  try {
+    const result = await GalleryImage.findById(req.params.id);
+    res.send(result.image);
+  } catch (error) {
+    res.status(400).send({ get_error: "Error while getting iimage." });
+  }
+};
+
 export const uploadImage = async (req, res) => {
   try {
     const image = new GalleryImage();

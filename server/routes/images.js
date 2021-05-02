@@ -1,17 +1,22 @@
 import express from "express";
 import multer from "multer";
 
-import { getImages, uploadImage } from "../controllers/images.js";
+import {
+  getImages,
+  getImageFromId,
+  uploadImage,
+} from "../controllers/images.js";
 
 const router = express.Router();
 
 const upload = multer({
   limits: {
-    fileSize: 1000000, // max file size 1MB = 1000000 bytes
+    fileSize: 10000000, // max file size 10MB = 1000000 bytes
   },
 });
 
 router.get("/", getImages);
+router.get("/:id", getImageFromId);
 router.post(
   "/",
   upload.single("image"),
