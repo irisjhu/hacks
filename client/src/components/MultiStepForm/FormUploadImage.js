@@ -46,7 +46,7 @@ const FormUploadImage = (props) => {
             Upload
           </Button>
         </label>
-        <span style={{ paddingLeft: "10px" }}>{fileName}</span>
+        {fileName && <span style={{ paddingLeft: "10px" }}>{fileName}</span>}
       </div>
       <div className={`${classes.centerItems} ${classes.onlyTopBottomPadding}`}>
         <Button variant="contained" color="primary" onClick={handleSubmit}>
