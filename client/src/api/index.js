@@ -8,3 +8,11 @@ export const uploadImage = (formData) =>
       "Content-Type": "multipart/form-data",
     },
   });
+
+export const getMemes = () => axios.get(`${BASE_API_URL}/memes`);
+export const uploadMeme = (formData) =>
+  axios.post(`${BASE_API_URL}/memes`, formData, {
+    headers: {
+      "Content-Type": "multipart/form-data",
+    },
+  });
