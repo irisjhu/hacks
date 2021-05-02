@@ -15,9 +15,9 @@ export const uploadImage = (image) => async (dispatch) => {
   try {
     const formData = new FormData();
     formData.append("image", image);
-    await api.uploadImage(formData);
+    const result = await api.uploadImage(formData);
 
-    dispatch({ type: "UPLOAD_IMAGE", payload: image });
+    dispatch({ type: "UPLOAD_IMAGE", payload: result.data });
   } catch (error) {
     // TODO: dispatch a getErrors action
     console.log(error);
