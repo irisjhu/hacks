@@ -1,9 +1,10 @@
 import { makeStyles } from "@material-ui/core/styles";
 
 export default makeStyles((theme) => ({
-  alignItemsAndJustifyContent: {
-    flexDirection: "column",
+  elongateContainerAndCenterItems: {
+    height: "90%",
+    display: "flex",
     alignItems: "center",
-    justify: "center",
+    justifyContent: "center",
   },
 }));
