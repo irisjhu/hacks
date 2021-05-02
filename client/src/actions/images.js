@@ -7,7 +7,7 @@ export const getImages = () => async (dispatch) => {
     const { data } = await api.getImages();
     data.reverse();
 
-    dispatch({ type: "FETCH_ALL", payload: data });
+    dispatch({ type: "FETCH_ALL_IMAGES", payload: data });
   } catch (error) {
     error.response && dispatch(getErrors(error.response.data));
   }
