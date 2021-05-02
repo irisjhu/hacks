@@ -1,14 +1,5 @@
 import React from "react";
-import {
-  Box,
-  Card,
-  CardMedia,
-  Container,
-  Grid,
-  Typography,
-} from "@material-ui/core";
-
-import useStyles from "./styles";
+import { Box, Container, Grid, Typography } from "@material-ui/core";
 
 // member pictures
 import irismeme from "../../images/memberPics/irismeme.png";
@@ -38,7 +29,7 @@ import spatula from "../../images/shapes/spatula.svg";
 import MemberCard from "../../components/MemberCard/memberCard";
 
 const About = () => {
-  const classes = useStyles();
+  // const classes = useStyles();
   const hacksMembers = [
     { member: irismeme, shape: chevron, name: "Iris Hu" },
     { member: allisonmeme, shape: bread, name: "Allison Wei" },

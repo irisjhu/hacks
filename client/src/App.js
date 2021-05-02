@@ -46,7 +46,12 @@ const App = () => {
           <Toolbar>
             <Container maxWidth="false" className={classes.navbarDisplayFlex}>
               <Link to="/" className={classes.linkText}>
-                <img src={logo} height="50px" style={{ padding: "10px" }} />
+                <img
+                  src={logo}
+                  alt="hacks logo"
+                  height="50px"
+                  style={{ padding: "10px" }}
+                />
               </Link>
               <List component="nav" className={classes.navDisplayFlex}>
                 {navLinks.map(({ title, path }) => (

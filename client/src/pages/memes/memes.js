@@ -1,8 +1,6 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
-import { Box, Button, Container, Grid, Typography } from "@material-ui/core";
-import { useDispatch, useSelector } from "react-redux";
-import FileBase from "react-file-base64";
+import { Box, Button, Grid, Typography } from "@material-ui/core";
 
 const memeLinks = [
   {
@@ -68,7 +66,7 @@ const Memes = (props) => {
       <Grid spacing={5} container direction="column" alignItems="center">
         {memeLinks.map(({ url, alt }) => (
           <Grid item>
-            <img src={url} />
+            <img src={url} alt={alt} />
           </Grid>
         ))}
       </Grid>

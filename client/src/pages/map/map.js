@@ -11,6 +11,7 @@ const HacksMap = () => {
         src="https://www.google.com/maps/d/u/0/embed?mid=1vyEfSFG-cKtal4MefLpqdoKX1vwm8nju"
         width="80%"
         height="80%"
+        title="hacks map"
       ></iframe>
     </Container>
   );
