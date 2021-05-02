@@ -4,6 +4,7 @@ import cors from "cors";
 import dotenv from "dotenv";
 
 import imageRoutes from "./routes/images.js";
+import memeRoutes from "./routes/memes.js";
 
 const app = express();
 dotenv.config();
@@ -15,6 +16,7 @@ app.use(cors());
 
 // routes
 app.use("/images", imageRoutes);
+app.use("/memes", memeRoutes);
 
 const PORT = process.env.PORT || 5000;
 

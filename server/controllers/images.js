@@ -17,7 +17,7 @@ export const getImageFromId = async (req, res) => {
     const result = await GalleryImage.findById(req.params.id);
     res.send(result.image);
   } catch (error) {
-    res.status(400).send({ get_error: "Error while getting iimage." });
+    res.status(400).send({ get_error: "Error while getting image." });
   }
 };
 
