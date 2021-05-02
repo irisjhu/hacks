@@ -1,4 +1,5 @@
 import * as api from "../api";
+import { getErrors } from "./errors";
 
 // Action Creators
 export const getImages = () => async (dispatch) => {
@@ -8,7 +9,7 @@ export const getImages = () => async (dispatch) => {
 
     dispatch({ type: "FETCH_ALL", payload: data });
   } catch (error) {
-    console.log(error);
+    error.response && dispatch(getErrors(error.response.data));
   }
 };
 
@@ -20,7 +21,6 @@ export const uploadImage = (image) => async (dispatch) => {
 
     dispatch({ type: "UPLOAD_IMAGE", payload: result.data });
   } catch (error) {
-    // TODO: dispatch a getErrors action
-    console.log(error);
+    error.response && dispatch(getErrors(error.response.data));
   }
 };

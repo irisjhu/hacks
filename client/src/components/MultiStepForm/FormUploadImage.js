@@ -1,17 +1,21 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 import { Button, Input, InputLabel } from "@material-ui/core";
 import CloudUploadIcon from "@material-ui/icons/CloudUpload";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 import useStyles from "./styles";
 import { uploadImage } from "../../actions/images";
+import { clearErrors } from "../../actions/errors";
 
 const FormUploadImage = (props) => {
   const classes = useStyles();
   const [image, setImage] = React.useState(null);
   const [fileName, setFileName] = React.useState("");
   const dispatch = useDispatch();
+  const errors = useSelector((state) => state.errors);
+  const images = useSelector((state) => state.images);
+  const [submitted, setSubmitted] = React.useState(false);
 
   const handleChange = (e) => {
     if (e.target.files[0]) {
@@ -26,9 +30,23 @@ const FormUploadImage = (props) => {
       alert("No image selected!");
     } else {
       dispatch(uploadImage(image));
-      props.nextStep();
+      setSubmitted(true);
     }
   };
+
+  useEffect(() => {
+    if (errors && errors.upload_error) {
+      setSubmitted(false);
+      alert(errors.upload_error);
+      dispatch(clearErrors());
+    }
+  }, [errors]);
+
+  useEffect(() => {
+    if (submitted) {
+      props.nextStep();
+    }
+  }, [images]);
 
   return (
     <form onSubmit={handleSubmit} method="post" encType="multipart/form-data">

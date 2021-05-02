@@ -1,5 +1,9 @@
 import { combineReducers } from "redux";
 
-import images from "./images";
+import imagesReducer from "./images";
+import errorsReducer from "./errors";
 
-export default combineReducers({ images });
+export default combineReducers({
+  images: imagesReducer,
+  errors: errorsReducer,
+});

@@ -1,4 +1,4 @@
-export default (images = [], action) => {
+const imagesReducer = (images = [], action) => {
   switch (action.type) {
     case "FETCH_ALL":
       return action.payload;
@@ -8,3 +8,5 @@ export default (images = [], action) => {
       return images;
   }
 };
+
+export default imagesReducer;
