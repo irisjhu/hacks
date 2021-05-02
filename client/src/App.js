@@ -44,7 +44,7 @@ const App = () => {
       <div className={classes.root}>
         <AppBar position="static" color="transparent" elevation={0}>
           <Toolbar>
-            <Container maxWidth="false" className={classes.navbarDisplayFlex}>
+            <Container className={classes.navbarDisplayFlex}>
               <Link to="/" className={classes.linkText}>
                 <img
                   src={logo}
