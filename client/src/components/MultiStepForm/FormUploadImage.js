@@ -1,6 +1,6 @@
 import React from "react";
 
-import { Box, Button, Typography } from "@material-ui/core";
+import { Button } from "@material-ui/core";
 import CloudUploadIcon from "@material-ui/icons/CloudUpload";
 
 import useStyles from "./styles";

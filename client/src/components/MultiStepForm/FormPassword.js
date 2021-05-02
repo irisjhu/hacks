@@ -1,12 +1,6 @@
 import React from "react";
 
-import {
-  Typography,
-  TextField,
-  DialogContentText,
-  Container,
-  Button,
-} from "@material-ui/core";
+import { TextField, Container, Button } from "@material-ui/core";
 import { sha256 } from "js-sha256";
 import useStyles from "./styles";
 
@@ -20,7 +14,7 @@ const FormPassword = (props) => {
     e.preventDefault();
     // TODO: store password hash in database and send api request to fetch
     const hash = sha256(password);
-    if (hash == passwordHash) {
+    if (hash === passwordHash) {
       props.nextStep();
     } else {
       props.errorOut("Incorrect Password");

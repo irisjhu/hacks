@@ -1,5 +1,6 @@
-import { Box, Container, Typography } from "@material-ui/core";
 import React from "react";
+
+import { Box, Container, Typography } from "@material-ui/core";
 
 import FormDialog from "../../components/FormDialog/FormDialog";
 import UserForm from "../../components/MultiStepForm/UserForm";

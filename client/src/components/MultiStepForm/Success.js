@@ -1,5 +1,6 @@
-import { DialogContentText, Typography } from "@material-ui/core";
 import React from "react";
+
+import { DialogContentText } from "@material-ui/core";
 
 const Success = (props) => {
   return <DialogContentText>{props.message}</DialogContentText>;

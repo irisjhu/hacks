@@ -5,7 +5,7 @@ import FormUploadImage from "./FormUploadImage";
 import Success from "./Success";
 
 const UserForm = () => {
-  const [step, setStep] = React.useState(2);
+  const [step, setStep] = React.useState(1);
   const [errorMessage, setErrorMessage] = React.useState("");
 
   const nextStep = () => {
@@ -17,17 +17,17 @@ const UserForm = () => {
     setErrorMessage(errorMessage);
   };
 
-  const handleChange = (input) => (e) => {};
-
   switch (step) {
     case 1:
       return <FormPassword nextStep={nextStep} errorOut={errorOut} />;
     case 2:
       return <FormUploadImage nextStep={nextStep} errorOut={errorOut} />;
-    case -1:
-      return <Error message={errorMessage} />;
     case 3:
       return <Success message="Image successfully uploaded!" />;
+    case -1:
+      return <Error message={errorMessage} />;
+    default:
+      return <Error message={"You should not be here @_@"} />;
   }
 };
 
