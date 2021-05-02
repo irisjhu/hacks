@@ -23,7 +23,7 @@ router.post(
   uploadImage,
   (error, req, res, next) => {
     if (error) {
-      res.status(500).send({ upload_error: error.message });
+      res.status(500).send({ upload_error: error.message + " (>10MB)." });
     }
   }
 );
