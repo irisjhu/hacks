@@ -6,4 +6,7 @@ export default makeStyles((theme) => ({
     alignItems: "center",
     justifyContent: "center",
   },
+  topBottomPadding: {
+    padding: "50px 0",
+  },
 }));
