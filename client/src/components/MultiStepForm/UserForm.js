@@ -19,7 +19,7 @@ const UserForm = () => {
 
   switch (step) {
     case 1:
-      return <FormPassword nextStep={nextStep} errorOut={errorOut} />;
+      return <FormPassword nextStep={nextStep} />;
     case 2:
       return <FormUploadImage nextStep={nextStep} errorOut={errorOut} />;
     case 3:

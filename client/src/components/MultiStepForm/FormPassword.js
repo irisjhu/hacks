@@ -7,6 +7,8 @@ import useStyles from "./styles";
 const FormPassword = (props) => {
   const classes = useStyles();
   const [password, setPassword] = React.useState("");
+  const [error, setError] = React.useState(false);
+  const [errorText, setErrorText] = React.useState("");
   const passwordHash =
     "54aaf480698139c2b85a60d50a6eefd6d40e72b42c9462a02e5c856f8bacc109";
 
@@ -17,11 +19,14 @@ const FormPassword = (props) => {
     if (hash === passwordHash) {
       props.nextStep();
     } else {
-      props.errorOut("Incorrect Password");
+      setError(true);
+      setErrorText("Incorrect password");
     }
   };
 
   const handleChange = (e) => {
+    setError(false);
+    setErrorText("");
     setPassword(e.target.value);
   };
 
@@ -35,6 +40,8 @@ const FormPassword = (props) => {
         variant="outlined"
         value={password}
         onChange={handleChange}
+        error={error}
+        helperText={errorText}
       ></TextField>
       <Container
         className={`${classes.rightAlign} ${classes.onlyTopBottomPadding}`}
