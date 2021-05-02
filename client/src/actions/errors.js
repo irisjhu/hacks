@@ -1,8 +1,10 @@
+import { Actions } from "../utils/constants";
+
 export const getErrors = (errors) => ({
-  type: "GET_ERRORS",
+  type: Actions.GET_ERRORS,
   errors,
 });
 
 export const clearErrors = () => ({
-  type: "CLEAR_ERRORS",
+  type: Actions.CLEAR_ERRORS,
 });

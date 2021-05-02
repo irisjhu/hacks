@@ -1,8 +1,10 @@
+import { Actions } from "../utils/constants";
+
 const errorsReducer = (state = {}, action) => {
   switch (action.type) {
-    case "GET_ERRORS":
+    case Actions.GET_ERRORS:
       return action.errors;
-    case "CLEAR_ERRORS":
+    case Actions.CLEAR_ERRORS:
       return {};
     default:
       return state;

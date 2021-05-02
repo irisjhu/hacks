@@ -1,5 +1,6 @@
 import * as api from "../api";
 import { getErrors } from "./errors";
+import { Actions } from "../utils/constants";
 
 // Action Creators
 export const getImages = () => async (dispatch) => {
@@ -7,7 +8,7 @@ export const getImages = () => async (dispatch) => {
     const { data } = await api.getImages();
     data.reverse();
 
-    dispatch({ type: "FETCH_ALL_IMAGES", payload: data });
+    dispatch({ type: Actions.FETCH_ALL_IMAGES, payload: data });
   } catch (error) {
     error.response && dispatch(getErrors(error.response.data));
   }
@@ -19,7 +20,7 @@ export const uploadImage = (image) => async (dispatch) => {
     formData.append("image", image);
     const result = await api.uploadImage(formData);
 
-    dispatch({ type: "UPLOAD_IMAGE", payload: result.data });
+    dispatch({ type: Actions.UPLOAD_IMAGE, payload: result.data });
   } catch (error) {
     error.response && dispatch(getErrors(error.response.data));
   }

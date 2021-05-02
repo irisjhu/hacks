@@ -1,5 +1,6 @@
 import * as api from "../api";
 import { getErrors } from "./errors";
+import { Actions } from "../utils/constants";
 
 // Action Creators
 export const getMemes = () => async (dispatch) => {
@@ -7,7 +8,7 @@ export const getMemes = () => async (dispatch) => {
     const { data } = await api.getMemes();
     data.reverse();
 
-    dispatch({ type: "FETCH_ALL_MEMES", payload: data });
+    dispatch({ type: Actions.FETCH_ALL_MEMES, payload: data });
   } catch (error) {
     error.response && dispatch(getErrors(error.response.data));
   }
@@ -19,7 +20,7 @@ export const uploadMeme = (meme) => async (dispatch) => {
     formData.append("meme", meme);
     const result = await api.uploadMeme(formData);
 
-    dispatch({ type: "UPLOAD_MEME", payload: result.data });
+    dispatch({ type: Actions.UPLOAD_MEME, payload: result.data });
   } catch (error) {
     error.response && dispatch(getErrors(error.response.data));
   }
