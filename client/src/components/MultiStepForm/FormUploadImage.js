@@ -1,14 +1,17 @@
 import React from "react";
 
-import { Button } from "@material-ui/core";
+import { Button, Input, InputLabel } from "@material-ui/core";
 import CloudUploadIcon from "@material-ui/icons/CloudUpload";
+import { useDispatch } from "react-redux";
 
 import useStyles from "./styles";
+import { uploadImage } from "../../actions/images";
 
 const FormUploadImage = (props) => {
   const classes = useStyles();
   const [image, setImage] = React.useState(null);
   const [fileName, setFileName] = React.useState("");
+  const dispatch = useDispatch();
 
   const handleChange = (e) => {
     if (e.target.files[0]) {
@@ -18,25 +21,27 @@ const FormUploadImage = (props) => {
   };
 
   const handleSubmit = (e) => {
+    e.preventDefault();
     if (image == null) {
       alert("No image selected!");
     } else {
-      // TODO: upload image to database and proceed to next step if successful
+      dispatch(uploadImage(image));
       props.nextStep();
     }
   };
 
   return (
-    <>
+    <form onSubmit={handleSubmit} method="post" encType="multipart/form-data">
       <div className={`${classes.centerItems} ${classes.onlyTopBottomPadding}`}>
-        <input
+        <Input
           accept="image/*"
           className={classes.input}
           type="file"
           id="contained-button-file"
           onChange={handleChange}
+          name="image"
         />
-        <label htmlFor="contained-button-file">
+        <InputLabel htmlFor="contained-button-file">
           <Button
             variant="contained"
             color="default"
@@ -45,15 +50,15 @@ const FormUploadImage = (props) => {
           >
             Upload
           </Button>
-        </label>
+        </InputLabel>
         {fileName && <span style={{ paddingLeft: "10px" }}>{fileName}</span>}
       </div>
       <div className={`${classes.centerItems} ${classes.onlyTopBottomPadding}`}>
-        <Button variant="contained" color="primary" onClick={handleSubmit}>
+        <Button variant="contained" color="primary" type="submit">
           Submit
         </Button>
       </div>
-    </>
+    </form>
   );
 };
 
