@@ -1,6 +1,20 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
-import { Box, Button, Grid, Typography } from "@material-ui/core";
+import {
+  Box,
+  Button,
+  CircularProgress,
+  Container,
+  Grid,
+  Typography,
+} from "@material-ui/core";
+import { useDispatch, useSelector } from "react-redux";
+
+import useStyles from "./styles";
+import FormDialog from "../../components/FormDialog/FormDialog";
+import ImageGallery from "../../components/ImageGallery/ImageGallery";
+import UserForm from "../../components/MultiStepForm/UserForm";
+import { getMemes, uploadMeme } from "../../actions/memes";
 
 const memeLinks = [
   {
@@ -25,52 +39,48 @@ const memeLinks = [
   },
 ];
 
-const useStyles = makeStyles((theme) => ({
-  root: {
-    "& > *": {
-      margin: theme.spacing(1),
-    },
-  },
-  input: {
-    display: "none",
-  },
-}));
-
 const Memes = (props) => {
   const classes = useStyles();
+  const [isLoading, setIsLoading] = useState(false);
+  const dispatch = useDispatch();
+  const memes = useSelector((state) => state.memes);
+
+  useEffect(() => {
+    setIsLoading(true);
+    dispatch(getMemes());
+  }, [dispatch]);
+
+  useEffect(() => {
+    if (memes.length > 0) {
+      setIsLoading(false);
+    }
+  }, [memes]);
+
   return (
-    <div>
+    <Container maxWidth="false">
       <Typography variant="h1" align="center">
         <Box paddingTop={10} paddingBottom={5} letterSpacing={6}>
           dank memes
         </Box>
       </Typography>
-      <Grid spacing={5} container direction="column" alignItems="center">
-        <Grid item>
-          <div className={classes.root}>
-            <input
-              accept="image/*"
-              className={classes.input}
-              id="contained-button-file"
-              multiple={false}
-              type="file"
-            />
-            <label htmlFor="contained-button-file">
-              <Button variant="contained" color="primary" component="span">
-                Upload a meme
-              </Button>
-            </label>
-          </div>
-        </Grid>
-      </Grid>
-      <Grid spacing={5} container direction="column" alignItems="center">
-        {memeLinks.map(({ url, alt }) => (
-          <Grid item>
-            <img src={url} alt={alt} />
-          </Grid>
-        ))}
-      </Grid>
-    </div>
+      <Container className={classes.centerItems}>
+        <FormDialog
+          buttonText="Upload a Meme"
+          title="Upload a Meme"
+          content={<UserForm uploadActionFunc={uploadMeme} images={memes} />}
+        />
+      </Container>
+      <Container
+        className={`${classes.centerItems} ${classes.topBottomPadding}`}
+        maxWidth="false"
+      >
+        {isLoading ? (
+          <CircularProgress />
+        ) : (
+          <ImageGallery images={memes} endpoint="memes" />
+        )}
+      </Container>
+    </Container>
   );
 };
 

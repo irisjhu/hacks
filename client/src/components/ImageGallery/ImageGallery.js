@@ -7,7 +7,7 @@ const ImageGallery = (props) => {
   return (
     <Grid container justify="center" spacing={3} variant="outlined">
       {props.images.map((image) => (
-        <Image id={image._id} key={image._id} />
+        <Image id={image._id} key={image._id} endpoint={props.endpoint} />
       ))}
     </Grid>
   );

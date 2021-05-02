@@ -4,7 +4,7 @@ import FormPassword from "./FormPassword";
 import FormUploadImage from "./FormUploadImage";
 import Success from "./Success";
 
-const UserForm = () => {
+const UserForm = (props) => {
   const [step, setStep] = React.useState(1);
   const [errorMessage, setErrorMessage] = React.useState("");
 
@@ -21,7 +21,14 @@ const UserForm = () => {
     case 1:
       return <FormPassword nextStep={nextStep} />;
     case 2:
-      return <FormUploadImage nextStep={nextStep} errorOut={errorOut} />;
+      return (
+        <FormUploadImage
+          nextStep={nextStep}
+          errorOut={errorOut}
+          uploadActionFunc={props.uploadActionFunc}
+          images={props.images}
+        />
+      );
     case 3:
       return <Success message="Image successfully uploaded!" />;
     case -1:

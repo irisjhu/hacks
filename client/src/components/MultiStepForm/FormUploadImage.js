@@ -14,8 +14,9 @@ const FormUploadImage = (props) => {
   const [fileName, setFileName] = React.useState("");
   const dispatch = useDispatch();
   const errors = useSelector((state) => state.errors);
-  const images = useSelector((state) => state.images);
+  const images = props.images;
   const [submitted, setSubmitted] = React.useState(false);
+  const uploadActionFunc = props.uploadActionFunc;
 
   const handleChange = (e) => {
     if (e.target.files[0]) {
@@ -29,7 +30,7 @@ const FormUploadImage = (props) => {
     if (image == null) {
       alert("No image selected!");
     } else {
-      dispatch(uploadImage(image));
+      dispatch(uploadActionFunc(image));
       setSubmitted(true);
     }
   };

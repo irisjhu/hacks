@@ -13,7 +13,7 @@ import FormDialog from "../../components/FormDialog/FormDialog";
 import UserForm from "../../components/MultiStepForm/UserForm";
 
 import useStyles from "./styles";
-import { getImages } from "../../actions/images";
+import { getImages, uploadImage } from "../../actions/images";
 
 const Gallery = () => {
   const classes = useStyles();
@@ -43,15 +43,18 @@ const Gallery = () => {
         <FormDialog
           buttonText="Upload Image"
           title="Upload Image"
-          content={<UserForm />}
+          content={<UserForm uploadActionFunc={uploadImage} images={images} />}
         />
       </Container>
-      {/* TODO: fetch images from database and display in grid */}
       <Container
         className={`${classes.centerItems} ${classes.topBottomPadding}`}
         maxWidth="false"
       >
-        {isLoading ? <CircularProgress /> : <ImageGallery images={images} />}
+        {isLoading ? (
+          <CircularProgress />
+        ) : (
+          <ImageGallery images={images} endpoint="images" />
+        )}
       </Container>
     </Container>
   );
