@@ -9,7 +9,7 @@ const MemeSchema = mongoose.Schema({
 
 MemeSchema.methods.toJSON = function () {
   const result = this.toObject();
-  delete result.image;
+  delete result.meme;
   return result;
 };
 
