@@ -1,5 +1,5 @@
 import { combineReducers } from "redux";
 
-import example from "./example";
+import images from "./images";
 
-export default combineReducers({ example });
+export default combineReducers({ images });
