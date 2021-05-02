@@ -4,17 +4,12 @@ import {
   AppBar,
   Container,
   Toolbar,
-  Typography,
-  Button,
-  IconButton,
   List,
   ListItem,
   ListItemText,
-  sizing,
   createMuiTheme,
   ThemeProvider,
 } from "@material-ui/core";
-import MenuIcon from "@material-ui/icons/Menu";
 
 import logo from "./images/logo.png";
 import About from "./pages/about/about";
@@ -50,8 +45,8 @@ const App = () => {
         <AppBar position="static" color="transparent" elevation={0}>
           <Toolbar>
             <Container maxWidth="false" className={classes.navbarDisplayFlex}>
-              <Link width="20%" to="/" className={classes.linkText}>
-                <img src={logo} width="20%" />
+              <Link to="/" className={classes.linkText}>
+                <img src={logo} height="50px" style={{ padding: "10px" }} />
               </Link>
               <List component="nav" className={classes.navDisplayFlex}>
                 {navLinks.map(({ title, path }) => (
