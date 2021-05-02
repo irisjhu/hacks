@@ -7,6 +7,6 @@ export default makeStyles((theme) => ({
     justifyContent: "center",
   },
   topBottomPadding: {
-    padding: "50px 0",
+    padding: "50px 30px",
   },
 }));

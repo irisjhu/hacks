@@ -33,7 +33,7 @@ const Gallery = () => {
   }, [images]);
 
   return (
-    <Container>
+    <Container maxWidth="false">
       <Typography variant="h1" align="center">
         <Box paddingTop={10} paddingBottom={5} letterSpacing={6}>
           gallery
@@ -49,6 +49,7 @@ const Gallery = () => {
       {/* TODO: fetch images from database and display in grid */}
       <Container
         className={`${classes.centerItems} ${classes.topBottomPadding}`}
+        maxWidth="false"
       >
         {isLoading ? <CircularProgress /> : <ImageGallery images={images} />}
       </Container>
