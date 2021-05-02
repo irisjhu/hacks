@@ -3,7 +3,7 @@ export default (images = [], action) => {
     case "FETCH_ALL":
       return action.payload;
     case "UPLOAD_IMAGE":
-      return [...images, action.payload];
+      return [action.payload, ...images];
     default:
       return images;
   }
