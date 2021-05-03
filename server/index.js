@@ -18,6 +18,10 @@ app.use(cors());
 app.use("/images", imageRoutes);
 app.use("/memes", memeRoutes);
 
+app.get("/", (req, res) => {
+  res.send("Hello to Hacks website API");
+});
+
 const PORT = process.env.PORT || 5000;
 
 mongoose
