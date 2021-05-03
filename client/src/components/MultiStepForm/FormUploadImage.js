@@ -5,7 +5,6 @@ import CloudUploadIcon from "@material-ui/icons/CloudUpload";
 import { useDispatch, useSelector } from "react-redux";
 
 import useStyles from "./styles";
-import { uploadImage } from "../../actions/images";
 import { clearErrors } from "../../actions/errors";
 
 const FormUploadImage = (props) => {
