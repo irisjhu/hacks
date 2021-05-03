@@ -1,4 +1,4 @@
-export const BASE_API_URL = "http://localhost:5000";
+export const BASE_API_URL = "https://hacks-website.herokuapp.com";
 
 export const Actions = {
   FETCH_ALL_IMAGES: "FETCH_ALL_IMAGES",
