@@ -29,6 +29,12 @@ const FormPassword = (props) => {
     setPassword(e.target.value);
   };
 
+  const handleKeyPress = (e) => {
+    if (e.key === "Enter") {
+      submitPassword(e);
+    }
+  };
+
   return (
     <div>
       <TextField
@@ -41,6 +47,7 @@ const FormPassword = (props) => {
         onChange={handleChange}
         error={error}
         helperText={errorText}
+        onKeyPress={handleKeyPress}
       ></TextField>
       <Container
         className={`${classes.rightAlign} ${classes.onlyTopBottomPadding}`}
